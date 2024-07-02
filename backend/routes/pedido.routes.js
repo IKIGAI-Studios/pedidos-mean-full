@@ -4,7 +4,7 @@ import Pedido from '../models/pedido.model.js'
 
 const pedidoRouter = Router()
 
-pedidoRouter.post('/', (req,res) => {
+pedidoRouter.post('/', (req,res) => { //? cambiamos nombre de ruta??
     Pedido.create(req.body)
     .then(data => {
         console.log('Se insertó un pedido')
