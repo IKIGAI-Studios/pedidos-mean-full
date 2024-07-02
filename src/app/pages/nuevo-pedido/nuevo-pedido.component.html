@@ -1,1 +1,94 @@
-<p>nuevo-pedido works!</p>
+<div class="container">
+        <h2>Nuevo Pedido</h2>
+    
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card-body">
+    
+                    <form [formGroup]="pedidoForm" (ngSubmit)="onSubmit()">
+    
+                        <div class="form-group">
+                            <label for="nombre">Producto</label>
+                            <input type="text" class="form-control" formControlName="producto">
+                            <!-- Mensaje de error de validación -->
+                             <div style="color: red;" *ngIf="enviado && myForm['producto'].errors?.['required']">
+                                Este campo es obligatorio
+                             </div>
+                        </div>
+    
+                        <br>
+    
+                        <div class="form-group">
+                            <label for="departamento">Departamento</label>
+                            <select class="custom-select form-control" 
+                            (change)="actualizarPedido($event.target.value)" 
+                            formControlName="tipo_pago">
+                                <option value="">Selecciona un tipo de pago</option>
+                                <option *ngFor="let tipo_pago of pedidoTipoPago" value="{{tipo_pago}}">
+                                    {{tipo_pago}}
+                                </option>
+                            </select>
+                            <!-- Mensaje de error de validación -->
+                            <div style="color: red;" *ngIf="enviado && myForm['tipo_pago'].errors?.['required']">
+                                Debes seleccionar un tipo de pago
+                             </div>                        
+                        </div>
+    
+                        <br>
+    
+                        <div class="form-group">
+                            <label for="telefono">Fecha</label>
+                            <input type="date" class="form-control" formControlName="fecha">
+                            <!-- Mensaje de error de validación -->
+                             <div style="color: red;" *ngIf="enviado && myForm['fecha'].errors?.['required']">
+                                Este campo es obligatorio
+                             </div>
+                             <!-- Mensaje de error de validación 2 -->
+                             <div style="color: red;" *ngIf="enviado && myForm['fecha'].errors?.['pattern']">
+                                La fecha no es válida
+                             </div>
+                        </div>
+
+                        <br>
+    
+                        <div class="form-group">
+                            <label for="telefono">Nombre del Cliente</label>
+                            <input type="text" class="form-control" formControlName="nombre_cliente">
+                            <!-- Mensaje de error de validación -->
+                             <div style="color: red;" *ngIf="enviado && myForm['nombre_cliente'].errors?.['required']">
+                                Este campo es obligatorio
+                             </div>
+                             <!-- Mensaje de error de validación 2 -->
+                             <div style="color: red;" *ngIf="enviado && myForm['nombre_cliente'].errors?.['pattern']">
+                                El nombre no es valido
+                             </div>
+                        </div>
+
+                        <br>
+    
+                        <div class="form-group">
+                            <label for="telefono">Direccion del Cliente</label>
+                            <input type="text" class="form-control" formControlName="direccion_cliente">
+                            <!-- Mensaje de error de validación -->
+                             <div style="color: red;" *ngIf="enviado && myForm['direccion_cliente'].errors?.['required']">
+                                Este campo es obligatorio
+                             </div>
+                             <!-- Mensaje de error de validación 2 -->
+                             <div style="color: red;" *ngIf="enviado && myForm['direccion_cliente'].errors?.['pattern']">
+                                La direccion del cliente no es valida
+                             </div>
+                        </div>
+    
+                        <br>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-lg btn-block" type="submit">
+                                Agregar empleado
+                            </button>
+                        </div>
+    
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+    </div>

@@ -75,10 +75,12 @@ export class EditarPedidoComponent implements OnInit {
     this.pedidoService.getPedido(id)
       .subscribe(data => {
         this.editarPedidoForm.setValue({
-          nombre: data['nombre'],
-          departamento: data['departamento'],
-          email: data['email'],
-          telefono: data['telefono'],
+          producto: data['producto'],
+          precio: data['precio'],
+          fecha: data['fecha'],
+          nombre_cliente: data['nombre_cliente'],
+          direccion_cliente: data['direccion_cliente'],
+          tipo_pago: data['tipo_pago'],
         });
       });
   }
