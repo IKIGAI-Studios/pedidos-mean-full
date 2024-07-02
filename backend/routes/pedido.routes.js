@@ -12,6 +12,7 @@ pedidoRouter.post('/', (req,res) => {
     })
     .catch(e => {
         console.log(`Error: ${e}`)
+        res.status(500).send({message: 'Error al insertar el pedido'})
     })
 })
 
@@ -22,6 +23,7 @@ pedidoRouter.get('/', (req, res) => {
     })
     .catch(e => {
         console.log(`Error: ${e}`)
+        res.status(500).send({message: 'Error al obtener los pedidos'})
     })
 })
 
@@ -33,6 +35,7 @@ pedidoRouter.get('/:id', (req, res) => {
     })
     .catch(e => {
         console.log(`Error: ${e}`)
+        res.status(500).send({message: 'Error al obtener el pedido'})
     })
 })
 
@@ -47,6 +50,7 @@ pedidoRouter.put('/:id', (req, res) => {
     })
     .catch(e => {
         console.log(`Error: ${e}`)
+        res.status(500).send({message: 'Error al actualizar el pedido'})
     })
 })
 
@@ -59,6 +63,7 @@ pedidoRouter.delete('/:id', (req, res) => {
     })
     .catch(e => {
         console.log(`Error: ${e}`)
+        res.status(500).send({message: 'Error al eliminar el pedido'})
     })
 })
 
