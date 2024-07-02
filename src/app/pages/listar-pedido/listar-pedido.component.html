@@ -1,1 +1,44 @@
-<p>listar-pedido works!</p>
+<div class="container">
+        <h2>Listado de Pedidos</h2>
+        
+        <p *ngIf="pedidos.length <= 0" class="text-center">
+                No hay pedidos registrados
+        </p>
+        
+        <table *ngIf="pedidos.length > 0" class="table table-bordered">
+                <thead class="table-success">
+                <tr>
+                        <th scope="col">ID Pedido</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Tipo de Pago</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Nombre del cliente</th>
+                        <th scope="col">Direccion del cliente</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let pedido of pedidos; let i = index">
+                        <td>{{ pedido._id }}</td>
+                        <td>{{ pedido.producto }}</td>
+                        <td>{{ pedido.precio }}</td>
+                        <td>{{ pedido.tipo_pago }}</td>
+                        <td>{{ pedido.fecha }}</td>
+                        <td>{{ pedido.nombre_cliente }}</td>
+                        <td>{{ pedido.direccion_cliente }}</td>
+                        <td>
+                        <span [routerLink]="['/editar-pedido', pedido._id]">
+                                <button type="button" class="btn btn-warning btn-sm">Editar</button>
+                        </span>
+                        </td>
+                        <td>
+                        <span (click)="eliminarPedido(pedido, i)">
+                                <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                        </span>
+                        </td>
+                </tr>
+                </tbody>
+        </table>
+</div>
