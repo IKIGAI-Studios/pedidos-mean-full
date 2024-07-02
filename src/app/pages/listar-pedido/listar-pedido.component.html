@@ -1,12 +1,12 @@
 <div class="container">
-        <h2>Listado de Pedidos</h2>
+        <h2 class="display-2">Listado de Pedidos</h2>
         
         <p *ngIf="pedidos.length <= 0" class="text-center">
                 No hay pedidos registrados
         </p>
         
-        <table *ngIf="pedidos.length > 0" class="table table-bordered">
-                <thead class="table-success">
+        <table *ngIf="pedidos.length > 0" class="table table-bordered table-dark table-striped mt-4 talb">
+                <thead class="table-primary">
                 <tr>
                         <th scope="col">ID Pedido</th>
                         <th scope="col">Producto</th>
@@ -30,7 +30,7 @@
                         <td>{{ pedido.direccion_cliente }}</td>
                         <td>
                         <span [routerLink]="['/editar-pedido', pedido._id]">
-                                <button type="button" class="btn btn-warning btn-sm">Editar</button>
+                                <button type="button" class="btn btn-primary btn-sm">Editar</button>
                         </span>
                         </td>
                         <td>

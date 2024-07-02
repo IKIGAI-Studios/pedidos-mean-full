@@ -62,7 +62,6 @@ export class NuevoPedidoComponent implements OnInit {
   onSubmit(){
     this.enviado = true;
     if(!this.pedidoForm.valid) return false;
-  
     return this.pedidoService.nuevoPedido(this.pedidoForm.value)
     .subscribe({
       complete: ()=>{

@@ -77,7 +77,7 @@ export class EditarPedidoComponent implements OnInit {
         this.editarPedidoForm.setValue({
           producto: data['producto'],
           precio: data['precio'],
-          fecha: data['fecha'],
+          fecha:  new Date(data['fecha']).toISOString().substring(0, 10),
           nombre_cliente: data['nombre_cliente'],
           direccion_cliente: data['direccion_cliente'],
           tipo_pago: data['tipo_pago'],
