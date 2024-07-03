@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import pedidoRouter from './routes/pedido.routes.js'
 import { connect } from './db/connection.js'
+import cors from 'cors'
 
 dotenv.config()
 
@@ -18,6 +19,8 @@ app.use(express.urlencoded({extended: true}))
 app.get('/', (req, res) => {
     res.send('Test')
 })
+
+app.use(cors())
 
 app.use('/api/pedidos', pedidoRouter)
 

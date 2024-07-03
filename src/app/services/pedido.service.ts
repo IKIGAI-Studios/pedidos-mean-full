@@ -8,7 +8,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 
 export class PedidoService {
   // Propiedades
-  baseURL : string = 'http://localhost:4000/api'
+  baseURL : string = 'https://pedidos-mean-back.onrender.com/api/pedidos'
   headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
 
